@@ -5,7 +5,7 @@ import { PropertyCard } from '@/components/PropertyCard';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { getProperties } from '@/app/actions/properties.actions';
-import { CheckCircle2, Building2, Wallet, Shield, MapPin, Phone, Mail } from 'lucide-react';
+import { CheckCircle2, Building2, Wallet, Shield, MapPin, Phone, Mail, Instagram } from 'lucide-react';
 
 export const metadata = {
   title: 'Plus S+GN Real Estate - Land Ownership Made Accessible',
@@ -296,9 +296,11 @@ export default async function Home() {
             <div>
               <h4 className="font-semibold mb-4 text-foreground">Socials</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>
+                <li >
                   <a href="https://instagram.com/plussign_realestateltd" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                    Instagram: @plussign_realestateltd
+                  <div className='flex items-center gap-2'>
+                    <Instagram className="w-4 h-4 mr-2" /> @plussign_realestateltd
+                  </div>
                   </a>
                 </li>
               </ul>
