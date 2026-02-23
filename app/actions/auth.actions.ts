@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { Role } from "@/lib/generated/prisma/client";
+import { Role } from "@prisma/client";
 import bcrypt from "bcrypt";
 
 const SALT_ROUNDS = 10;

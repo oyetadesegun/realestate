@@ -7,7 +7,7 @@ import { PropertyForm } from '@/components/PropertyForm';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { updateProperty, deleteProperty } from '@/app/actions/properties.actions';
-import { Role } from '@/lib/generated/prisma/client';
+import { Role } from '@prisma/client';
 import { toast } from 'sonner';
 import Link from 'next/link';
 

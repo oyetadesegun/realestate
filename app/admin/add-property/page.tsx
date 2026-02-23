@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 import { addProperty } from '@/app/actions/properties.actions';
-import { Role } from '@/lib/generated/prisma/client';
+import { Role } from '@prisma/client';
 import { toast } from 'sonner';
 
 export default function AddPropertyPage() {

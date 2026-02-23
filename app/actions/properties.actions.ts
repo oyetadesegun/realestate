@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { Prisma, Role } from "@/lib/generated/prisma/client";
+import { Prisma, Role } from "@prisma/client";
 
 export async function addProperty(
   data: Prisma.PropertyCreateInput,
@@ -48,7 +48,11 @@ export async function getPropertyById(id: number) {
   }
 }
 
-export async function updateProperty(id: number, data: Prisma.PropertyUpdateInput, role: Role) {
+export async function updateProperty(
+  id: number,
+  data: Prisma.PropertyUpdateInput,
+  role: Role,
+) {
   if (!data) {
     throw new Error("No data provided");
   }

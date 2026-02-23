@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Pencil, Trash2, Eye } from 'lucide-react';
 import { deleteProperty } from '@/app/actions/properties.actions';
-import { Role } from '@/lib/generated/prisma/client';
+import { Role } from '@prisma/client';
 import { toast } from 'sonner';
 
 interface Property {
