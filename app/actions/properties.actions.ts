@@ -2,6 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { Prisma, Role } from "@prisma/client";
+import { revalidatePath } from "next/cache";
 
 export async function addProperty(
   data: Prisma.PropertyCreateInput,
@@ -17,6 +18,9 @@ export async function addProperty(
     const newProperty = await prisma.property.create({
       data,
     });
+    revalidatePath("/");
+    revalidatePath("/properties");
+    revalidatePath("/admin/dashboard");
     return newProperty;
   } catch (error) {
     console.error(error);
@@ -66,6 +70,9 @@ export async function updateProperty(
       },
       data,
     });
+    revalidatePath("/");
+    revalidatePath("/properties");
+    revalidatePath("/admin/dashboard");
     return updatedProperty;
   } catch (error) {
     console.error(error);
@@ -86,6 +93,9 @@ export async function deleteProperty(id: number, role: Role) {
         id,
       },
     });
+    revalidatePath("/");
+    revalidatePath("/properties");
+    revalidatePath("/admin/dashboard");
     return deletedProperty;
   } catch (error) {
     console.error(error);

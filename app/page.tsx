@@ -14,7 +14,9 @@ export const metadata = {
 };
 
 export default async function Home() {
-  const allProperties = await getProperties();
+  const allProperties = (await getProperties()).sort((a: any, b: any) => 
+    new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
   const featuredProperties = allProperties
     .filter((p: any) => p.featured)
     .slice(0, 3);

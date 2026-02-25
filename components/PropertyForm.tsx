@@ -20,6 +20,7 @@ interface PropertyFormData {
   bathrooms: number;
   description: string;
   images: string[];
+  featured: boolean;
 }
 
 interface PropertyFormProps {
@@ -56,6 +57,7 @@ export function PropertyForm({
       bathrooms: 0,
       description: '',
       images: [],
+      featured: false,
     }
   );
 
@@ -73,6 +75,13 @@ export function PropertyForm({
         name === 'price' || name === 'bedrooms' || name === 'bathrooms'
           ? parseInt(value) || 0
           : value,
+    }));
+  };
+
+  const handleCheckboxChange = (checked: boolean) => {
+    setFormData((prev) => ({
+      ...prev,
+      featured: checked,
     }));
   };
 
@@ -191,6 +200,20 @@ export function PropertyForm({
               placeholder="e.g., 50000000"
               required
             />
+          </div>
+
+          <div className="flex items-center space-x-2 pt-2">
+            <Checkbox
+              id="featured"
+              checked={formData.featured}
+              onCheckedChange={handleCheckboxChange}
+            />
+            <label
+              htmlFor="featured"
+              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-foreground"
+            >
+              Mark as Featured Property
+            </label>
           </div>
         </div>
       </Card>
